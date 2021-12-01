@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -22,15 +22,15 @@
 </head>
 
 <body>
-    @include('inc.navbar')
+    <div id="app">
 
-    <div class="container">
-
-        @include('inc.messages')
-        @yield('content')
-        @yield('ck-editor')
+        @include('inc.navbar')
+        <main class="continer">
+            @include('inc.messages')
+            @yield('content')
+            @yield('ck-editor')
+        </main>
     </div>
-
 </body>
 
 </html>

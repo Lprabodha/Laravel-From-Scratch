@@ -25,7 +25,10 @@
     @include('inc.navbar')
 
     <div class="container">
+
+        @include('inc.messages')
         @yield('content')
+        @yield('ck-editor')
     </div>
 
 </body>

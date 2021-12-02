@@ -3,10 +3,10 @@
 @section('content')
 
     <div class="card">
-       
+
         <div class="card-body">
             <h1>Edit Posts</h1>
-            {!! Form::open(['action' => ['App\Http\Controllers\PostsController@update', $post->id], 'method' => 'POST']) !!}
+            {!! Form::open(['action' => ['App\Http\Controllers\PostsController@update', $post->id], 'method' => 'POST','enctype'=>'multipart/form-data']) !!}
 
             <div class="form-group">
                 {{ Form::label('title', 'Title') }}
@@ -15,6 +15,9 @@
             <div class="form-group">
                 {{ Form::label('body', 'Body') }}
                 {{ Form::textarea('body', $post->body, ['class' => 'form-control', 'placeholder' => 'Body Text', 'id' => 'editor']) }}
+            </div>
+            <div class="form-group">
+                {{ Form::file('cover_image') }}
             </div>
             {{ Form::hidden('_method', 'PUT') }}
             {{ Form::submit('submit', ['class' => 'btn btn-primary']) }}
